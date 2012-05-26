@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>NewTab</title>
+
+
+<style>
+
+	#carousel{
+		background-color:#FFFFFF;
+		width:700px;
+		height:400px;
+		position:relative;		
+		margin-left: auto ;
+		margin-right: auto ;
+	}
+	
+	img{
+		width:100%;
+		height:auto;
+		border:1px solid #00AAFF;
+		display:block;
+		filter: alpha(opacity=100);
+	}
+	
+</style>
+
+<script src="js/mootools.js" type="text/javascript"></script>
+<script src="js/3dcarousel.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+
+<div id="carousel" style="">

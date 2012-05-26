@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Gmail Widget</title>
+<meta name="generator" content="WYSIWYG Web Builder - http://www.wysiwygwebbuilder.com">
+<style type="text/css">
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+}
+</style>
+<link rel="stylesheet" href="./cupertino/jquery.ui.all.css" type="text/css">
+<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.mouse.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.sortable.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.button.min.js"></script>
+<style type="text/css">
+.ui-tabs
+{
+   padding: 4px 4px 4px 4px;
+}
+.ui-tabs .ui-tabs-nav
+{
+   font-family: Arial;
+   font-size: 13px;
+   padding: 4px 4px 0px 4px;
+}
+.ui-tabs .ui-tabs-nav li
+{
+   font-weight: normal;
+   font-style: normal;
+   margin: 0px 2px -1px 0px;
+}
+.ui-tabs .ui-tabs-nav li a
+{
+   padding: 8px 10px 8px 10px;
+}
+</style>
+<style type="text/css">
+#jQueryButton1
+{
+   font-family: Arial;
+   font-size: 13px;
+   font-weight: normal;
+   font-style: normal;
+}
+#jQueryButton1 .ui-button
+{
+   position: absolute;
+}
+</style>
+<script type="text/javascript">
+var GetInbox;
+var MsgCount = "";
+
+$(document).ready(function()
+{
+	external.Width = 318;
+	external.Height = 235;
+
+	// Ajax
+	function getXMLHTTPRequest() {
+		try {
+		req = new XMLHttpRequest(); /* e.g. Firefox */
+		} catch(e) {
+		  try {
+		  req = new ActiveXObject("Msxml2.XMLHTTP");
+		  /* some versions IE */
+		  } catch (e) {
+			try {
+			req = new ActiveXObject("Microsoft.XMLHTTP");
+			/* some versions IE */
+			} catch (E) {
+			  req = false;
+			}
+		  }
+		}
+		return req;
+	}
+
+	var http = getXMLHTTPRequest();
+	
+	GetInbox = function () {			
+		var myurl = 'https://' + external.ReadIniString('User', 'UserName') + ':' + external.ReadIniString('User', 'Pass') + '@mail.google.com/mail/feed/atom';					
+   
+		try {
+			http.abort();
+		}catch (E){}
+   
+		http.open("GET", myurl, false);
+		http.onreadystatechange = InboxResponse;
+		http.send(null);		
+	}
+
+	function InboxResponse() {
+		if (http.readyState == 4) {
+			if(http.status == 200) {
+				var el = http.responseXML.getElementsByTagName("fullcount");							
+				document.getElementById("InboxLink").innerText = 'You have ' + el[0].childNodes[0].nodeValue + ' new message.';
+				
+				if (MsgCount != el[0].childNodes[0].nodeValue) {
+					MsgCount = el[0].childNodes[0].nodeValue;
+					alert('You have ' + el[0].childNodes[0].nodeValue + ' new message.');
+				}
+			}
+		} 
+	}
+	
+	var t;
+	function InboxCheck() {		
+		if (external.ReadIniString('User', 'UserName') != "" ) {GetInbox();}
+		t = setTimeout("InboxCheck()", 180000); // 3min
+	}
+
+   var jQueryTabs1Opts =
+   {
+      event: 'click',
+      deselectable: 'false'
+   };
+   $("#jQueryTabs1").tabs(jQueryTabs1Opts);
+   $("#jQueryButton1").button();
+   
+   Editbox1.value = external.ReadIniString('User', 'UserName');
+   Editbox2.value = external.ReadIniString('User', 'Pass');
+   
+   InboxCheck();
+   
+   external.Close;
+});
+</script>
+</head>
+<body style="overflow:hidden">
+<div id="jQueryTabs1" style="position:absolute;left:0px;top:0px;width:302px;height:203px;z-index:8">
+<ul>
+<li><a href="#jquerytabs1-page-0"><span>Gmail</span></a></li>
+<li><a href="#jquerytabs1-page-1"><span>Settings</span></a></li>
+</ul>
+<div style="height:163px;overflow:auto" id="jquerytabs1-page-0">
+<div id="wb_Image1" style="margin:0;padding:0;position:absolute;left:13px;top:59px;width:128px;height:128px;text-align:left;z-index:0;">
+<img src="images/gmail1.png" id="Image1" alt="" border="0" style="width:128px;height:128px;"></div>
+<div id="wb_Text1" style="margin:0;padding:0;position:absolute;left:154px;top:101px;width:142px;height:44px;text-align:left;z-index:1;">
+<font style="font-size:19px" color="#2779AA" face="Arial"><a href="#" onclick="external.Close();external.SendCmd('New', 'www.gmail.com')"><b id="InboxLink">You have 0 new message.</b></a></font><font style="font-size:19px" color="#000000" face="Arial"><b> </b></font></div>
+</div>
+<div style="height:163px;overflow:auto" id="jquerytabs1-page-1">
+<input name="Editbox1" type="text" id="Editbox1" style="position:absolute;left:34px;top:84px;width:239px;height:18px;border:1px #AED0EA solid;font-family:Arial;font-size:13px;z-index:2" name="Editbox1" value="">
+<input name="Editbox2" type="password" id="Editbox2" style="position:absolute;left:34px;top:137px;width:239px;height:18px;border:1px #AED0EA solid;font-family:Arial;font-size:13px;z-index:3" name="Editbox1" value="">
+<div id="wb_Text2" style="margin:0;padding:0;position:absolute;left:38px;top:58px;width:90px;height:16px;text-align:left;z-index:4;">
+<font style="font-size:13px" color="#27A4E1" face="Arial"><b>User name:</b></font></div>
+<div id="wb_Text3" style="margin:0;padding:0;position:absolute;left:41px;top:115px;width:90px;height:16px;text-align:left;z-index:5;">
+<font style="font-size:13px" color="#27A4E1" face="Arial"><b>Password: </b></font></div>
+<input type="button" id="jQueryButton1" onclick="GetInbox();external.WriteIniString('User', 'UserName', Editbox1.value);external.WriteIniString('User', 'Pass', Editbox2.value);return false;" name="" value="Save" style="position:absolute;left:110px;top:171px;width:85px;height:30px;color:#2779AA;font-family:Arial;font-size:13px;z-index:6">
+</div>
+</div>
+</body>
+</html>

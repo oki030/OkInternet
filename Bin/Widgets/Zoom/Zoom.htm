@@ -1,0 +1,111 @@
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Zoom Widget</title>
+<style type="text/css">
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+}
+</style>
+<link rel="stylesheet" href="./cupertino/jquery.ui.all.css" type="text/css">
+<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.mouse.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.sortable.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.button.min.js"></script>
+<script type="text/javascript" src="./jquery.ui.slider.min.js"></script>
+<style type="text/css">
+.ui-tabs
+{
+   padding: 4px 4px 4px 4px;
+}
+.ui-tabs .ui-tabs-nav
+{
+   font-family: Arial;
+   font-size: 13px;
+   padding: 4px 4px 0px 4px;
+}
+.ui-tabs .ui-tabs-nav li
+{
+   font-weight: normal;
+   font-style: normal;
+   margin: 0px 2px -1px 0px;
+}
+.ui-tabs .ui-tabs-nav li a
+{
+   padding: 8px 10px 8px 10px;
+}
+</style>
+<style type="text/css">
+.ui-slider-vertical
+{
+   height: 153px;
+   width: 14px;
+}
+.ui-slider-vertical .ui-slider-handle
+{
+   left: -3px;
+   margin-left: 0px;
+   margin-bottom: -10px;
+}
+.ui-slider .ui-slider-handle
+{
+   height: 18px;
+   width: 18px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	external.Width = 205;
+	external.Height = 280;
+	
+   var jQueryTabs1Opts =
+   {
+      event: 'click',
+      deselectable: 'false'
+   };
+   $("#jQueryTabs1").tabs(jQueryTabs1Opts);
+   var jQuerySlider1Opts =
+   {
+      orientation: 'vertical',
+      animate: true,
+      range: false,
+      min: 0,
+      max: 200,
+      value: 100
+   };
+   $("#jQuerySlider1").slider(jQuerySlider1Opts);
+
+   $("#jQuerySlider1").bind('slidechange', function(event, ui)
+   {		
+		document.getElementById("ZoomText").innerText = 'Zoom: ' + ui.value + '%';
+		external.SendCmd('Zoom', ui.value);
+   });
+   
+   external.Close;
+});
+</script>
+</head>
+	<body style="overflow:hidden">
+		<div id="jQueryTabs1" style="position:absolute;left:0px;top:0px;width:190px;height:245px;z-index:4">
+			<ul>
+			<li><a href="#jquerytabs1-page-0"><span>ZooM</span></a></li>
+			</ul>
+			<div style="height:205px;overflow:auto" id="jquerytabs1-page-0">
+				<div id="wb_Image1" style="margin:0;padding:0;position:absolute;left:10px;top:92px;width:128px;height:128px;text-align:left;z-index:0;">
+				<img src="images/Zoom.png" id="Image1" alt="" border="0" style="width:128px;height:128px;"></div>
+				<div id="jQuerySlider1" style="position:absolute;left:160px;top:73px;width:14px;height:153px;z-index:1">
+				</div>
+				<div id="wb_Text1" style="margin:0;padding:0;position:absolute;left:36px;top:55px;width:79px;height:16px;text-align:left;z-index:2;">
+				<font style="font-size:13px" color="#4D79AA" face="Arial"><p id="ZoomText">Zoom: 100%</p></font></div>
+			</div>
+		</div>		
+	</body>
+</html>

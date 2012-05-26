@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/04/12 19:02:01.359.pas,C:\Documents and Settings\Oliver\My Documents\RAD Studio\Projects\Unit1.pas=C:\Documents and Settings\Oliver\Desktop\3Sreca\MainUnit.pas</Transaction>
+    <Transaction>2011/04/12 19:02:01.390.dfm,C:\Documents and Settings\Oliver\My Documents\RAD Studio\Projects\Unit1.dfm=C:\Documents and Settings\Oliver\Desktop\3Sreca\MainUnit.dfm</Transaction>
+    <Transaction>2011/04/12 19:02:07.546.dproj,C:\Documents and Settings\Oliver\My Documents\RAD Studio\Projects\Project1.dproj=C:\Documents and Settings\Oliver\Desktop\3Sreca\OkInternet.dproj</Transaction>
+    <Transaction>2011/04/12 19:03:44.968.pas,C:\Documents and Settings\Oliver\Desktop\3Sreca\Unit1.pas=C:\Documents and Settings\Oliver\Desktop\3Sreca\BrowserUnit.pas</Transaction>
+    <Transaction>2011/04/12 19:03:44.968.dfm,C:\Documents and Settings\Oliver\Desktop\3Sreca\Unit1.dfm=C:\Documents and Settings\Oliver\Desktop\3Sreca\BrowserUnit.dfm</Transaction>
+    <Transaction>2011/04/12 19:19:29.796.pas,C:\Documents and Settings\Oliver\Desktop\3Sreca\BrowserUnit.pas=</Transaction>
+    <Transaction>2011/04/12 19:19:29.796.dfm,C:\Documents and Settings\Oliver\Desktop\3Sreca\BrowserUnit.dfm=</Transaction>
+    <Transaction>2011/04/12 19:20:19.843.pas,C:\Documents and Settings\Oliver\Desktop\3Sreca\Unit1.pas=C:\Documents and Settings\Oliver\Desktop\3Sreca\BrowserUnit.pas</Transaction>
+    <Transaction>2011/04/12 19:20:19.843.dfm,C:\Documents and Settings\Oliver\Desktop\3Sreca\Unit1.dfm=C:\Documents and Settings\Oliver\Desktop\3Sreca\BrowserUnit.dfm</Transaction>
+    <Transaction>2011/04/12 22:28:48.687.pas,C:\Documents and Settings\Oliver\Desktop\3Sreca\Unit1.pas=C:\Documents and Settings\Oliver\Desktop\3Sreca\WidgetUnit.pas</Transaction>
+    <Transaction>2011/04/12 22:28:48.687.dfm,C:\Documents and Settings\Oliver\Desktop\3Sreca\Unit1.dfm=C:\Documents and Settings\Oliver\Desktop\3Sreca\WidgetUnit.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
