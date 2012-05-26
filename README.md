@@ -1,2 +1,1 @@
-OkInternet
-==========
+OkInternet, multi process web browser.
